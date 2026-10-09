@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: Payment-Service
+  datasource:
+    url: jdbc:mysql://localhost:3306/PAYMENT_SERVICE?createDatabaseIfNotExist=true
+    username: root
+    password: ${DB_PASSWORD:MySQL@12345}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        type:
+          preferred_uuid_jdbc_type: CHAR
+
+# Razorpay con
+razorpay:
+    key:
+      id: rzp_test_Tiez0ogxMA6aaW
+      secret: UGVRGXnU02vWVMPrUo8aO8co
+    webhook:
+      secret: UGVRGXnU02vWVMPrUo8aO8co
+
+services:
+  customer-vehicle-service:
+    name: CUSTOMER-VEHICLE-SERVICE
+
+  booking-service:
+    name: BOOKING-SERVICE

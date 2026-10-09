@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: Customer-Vehicle-Service
+  datasource:
+    url: jdbc:mysql://localhost:3306/CUSTOMER_VEHICLE_SERVICE?createDatabaseIfNotExist=true
+    username: root
+    password: ${DB_PASSWORD:MySQL@12345}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        type:
+          preferred_uuid_jdbc_type: CHAR
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health, metrics, info"
+
+server:
+  port: 8081
+

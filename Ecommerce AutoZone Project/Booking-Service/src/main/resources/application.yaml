@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: Booking-Service
+  datasource:
+    url: jdbc:mysql://localhost:3306/BOOKING_SERVICE?createDatabaseIfNotExist=true
+    username: root
+    password: ${DB_PASSWORD:MySQL@12345}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        type:
+          preferred_uuid_jdbc_type: CHAR
+  cloud:
+    discovery:
+      enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health, metrics, info"
+
+server:
+  port: 8082
+
+# Industry Practice Used For Inter-Service Communication
+services:
+  customer-vehicle-service:
+    name: CUSTOMER-VEHICLE-SERVICE
